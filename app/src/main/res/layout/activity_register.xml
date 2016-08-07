@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.mobee.prulifeagentplanner.RegisterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/submitButton"
+        android:id="@+id/scrollView"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RequestAccess"
+                android:text="@string/requestAccess"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agent"
+                android:id="@+id/agentRadioButton"
+                android:layout_gravity="center_horizontal"
+                android:checked="false"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_below="@+id/RequestAccess"
+                android:layout_alignLeft="@+id/RequestAccess"
+                android:layout_alignStart="@+id/RequestAccess"
+                android:layout_marginTop="30dp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/um"
+                android:id="@+id/umRadioButton"
+                android:checked="false"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_alignTop="@+id/agentRadioButton"
+                android:layout_toRightOf="@+id/agentRadioButton"
+                android:layout_toEndOf="@+id/agentRadioButton"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstName"
+                android:text="@string/firstName"
+                android:layout_below="@+id/agentRadioButton"
+                android:layout_alignLeft="@+id/agentRadioButton"
+                android:layout_alignStart="@+id/agentRadioButton"
+                android:layout_marginTop="30dp"
+                android:textSize="14dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstNameField"
+                android:layout_below="@+id/firstName"
+                android:layout_alignLeft="@+id/firstName"
+                android:layout_alignStart="@+id/firstName"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/middleName"
+                android:id="@+id/middleName"
+                android:layout_below="@+id/firstNameField"
+                android:layout_alignLeft="@+id/firstNameField"
+                android:layout_alignStart="@+id/firstNameField"
+                android:textSize="14dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/middleNameField"
+                android:layout_below="@+id/middleName"
+                android:layout_alignLeft="@+id/middleName"
+                android:layout_alignStart="@+id/middleName"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lastName"
+                android:id="@+id/lastName"
+                android:layout_below="@+id/middleNameField"
+                android:layout_alignLeft="@+id/middleNameField"
+                android:layout_alignStart="@+id/middleNameField"
+                android:textSize="14dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lastNameField"
+                android:layout_below="@+id/lastName"
+                android:layout_alignLeft="@+id/lastName"
+                android:layout_alignStart="@+id/lastName"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:id="@+id/email"
+                android:layout_below="@+id/lastNameField"
+                android:layout_alignLeft="@+id/lastNameField"
+                android:layout_alignStart="@+id/lastNameField"
+                android:textSize="14dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/emailField"
+                android:layout_below="@+id/email"
+                android:layout_alignLeft="@+id/email"
+                android:layout_alignStart="@+id/email"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agentCode"
+                android:id="@+id/agentCode"
+                android:layout_below="@+id/emailField"
+                android:layout_alignLeft="@+id/emailField"
+                android:layout_alignStart="@+id/emailField"
+                android:textSize="14dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/agentCodeField"
+                android:layout_below="@+id/agentCode"
+                android:layout_alignLeft="@+id/agentCode"
+                android:layout_alignStart="@+id/agentCode"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/branchManager"
+                android:id="@+id/branchManager"
+                android:layout_below="@+id/agentCodeField"
+                android:layout_alignLeft="@+id/agentCodeField"
+                android:layout_alignStart="@+id/agentCodeField"
+                android:textSize="14dp"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bmSpinner"
+                android:layout_below="@+id/branchManager"
+                android:layout_alignLeft="@+id/branchManager"
+                android:layout_alignStart="@+id/branchManager"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/um"
+                android:id="@+id/unitManager"
+                android:layout_below="@+id/bmSpinner"
+                android:layout_alignLeft="@+id/bmSpinner"
+                android:layout_alignStart="@+id/bmSpinner"
+                android:textSize="14dp"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/umSpinner"
+                android:layout_below="@+id/unitManager"
+                android:layout_alignLeft="@+id/unitManager"
+                android:layout_alignStart="@+id/unitManager"
+                android:spinnerMode="dropdown" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorPrimary"
+        android:text="@string/submit"
+        android:gravity="center"
+        />
+
+
+</LinearLayout>
