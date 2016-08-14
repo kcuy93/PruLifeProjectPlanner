@@ -18,27 +18,28 @@ public class AccountActivationModel {
         void onFail();
     }
 
+
     //constant strings for database child names
     private static String ACTIVATION_REQUEST_ROOT= "ActivationRequests";
 
     //get instance of database
-    DatabaseReference prulifeDatabase;
+    DatabaseReference activationReqeustNode;
+    DatabaseReference prulifePlannerDatabase;
+    String managerID;
 
-    public AccountActivationModel(){
-        this.prulifeDatabase = FirebaseDatabase.getInstance().getReference().child(ACTIVATION_REQUEST_ROOT);
+    public AccountActivationModel(String managerID){
+        this.prulifePlannerDatabase = FirebaseDatabase.getInstance().getReference();
+        this.activationReqeustNode = prulifePlannerDatabase.child(ACTIVATION_REQUEST_ROOT);
+        this.managerID = managerID;
     }
 
-    public void requestActivation(String managerID, String requesterID){
-        prulifeDatabase.child(managerID).child(requesterID).setValue(false);
+    public void requestActivation(String requesterID){
+        activationReqeustNode.child(managerID).child(requesterID).setValue(false);
     }
 
-    public void acceptActivation(){
+    public void getPendingRequests(final GetPendingRequestListener listener){
 
-    }
-
-    public void getPendingRequests(String managerID, final GetPendingRequestListener listener){
-
-        prulifeDatabase.child(managerID).addListenerForSingleValueEvent(new ValueEventListener() {
+        activationReqeustNode.child(managerID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -58,6 +59,31 @@ public class AccountActivationModel {
             }
         });
 
+    }
+
+    public void acceptRequest(String requesterID){
+        //change activation status of requester to activated
+        prulifePlannerDatabase.child("Users").child(requesterID).child("agentStatus").setValue(true);
+
+        //remove from pending list
+        activationReqeustNode.child(managerID).child(requesterID).removeValue();
+    }
+
+    public void rejectRequest(String requesterID){
+        //change activation status of requester to not activated
+        prulifePlannerDatabase.child("Users").child(requesterID).child("agentStatus").setValue(false);
+
+        //remove from pendinglist
+        activationReqeustNode.child(managerID).child(requesterID).removeValue();
+    }
+
+    public void removeFromPendingList(String requesterID){
+        activationReqeustNode.child(managerID).child(requesterID).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+            }
+        });
     }
 
 

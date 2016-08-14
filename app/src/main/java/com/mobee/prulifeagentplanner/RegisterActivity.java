@@ -1,9 +1,7 @@
 package com.mobee.prulifeagentplanner;
 
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ButtonBarLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -12,8 +10,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 public class RegisterActivity extends AppCompatActivity {
