@@ -14,25 +14,5 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        EditText username, password;
-        Button login;
-        TextView register;
-
-        username = (EditText) findViewById(R.id.usernameField);
-        password = (EditText) findViewById(R.id.passwordField);
-        login = (Button) findViewById(R.id.loginButton);
-        register = (TextView) findViewById(R.id.requestAccess);
-
-
-        register.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
     }
 }

@@ -140,19 +140,23 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/approachTally"
                             android:layout_weight="1"
                             android:textSize="14dp"
                             android:gravity="left"
-                            android:text="3"/>
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:id="@+id/approachTallyTotal"
                             android:layout_column="14"
                             android:textSize="14dp"
                             android:gravity="center"
-                            android:text="3"/>
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                     </TableRow>
 
@@ -180,18 +184,23 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:id="@+id/appointmentsTally"
                             android:textSize="14dp"
                             android:gravity="left"
-                            android:text="3"/>
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
+
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:id="@+id/appointmentsTotal"
                             android:layout_column="14"
                             android:textSize="14dp"
                             android:gravity="center"
-                            android:text="6"/>
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                     </TableRow>
 
@@ -213,24 +222,29 @@
                             android:text="@string/presentation"
                             android:textSize="16dp"
                             android:gravity="left"
+                            android:background="@android:color/transparent"
                             />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:id="@+id/presentationTally"
                             android:textSize="14dp"
                             android:gravity="left"
-                            android:text="3"/>
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:id="@+id/presentationTotal"
                             android:layout_column="14"
                             android:textSize="14dp"
                             android:gravity="center"
-                            android:text="9"/>
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                     </TableRow>
 
@@ -258,9 +272,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:id="@+id/closedSaleTally"
                             android:textSize="14dp"
                             android:gravity="left"
-                            android:text="3"/>
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -268,8 +284,10 @@
                             android:layout_weight="1"
                             android:layout_column="14"
                             android:textSize="14dp"
+                            android:id="@+id/closedSaleTotal"
                             android:gravity="center"
-                            android:text="15"/>
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                     </TableRow>
 
@@ -291,7 +309,8 @@
                             android:text="@string/referrals"
                             android:textSize="16dp"
                             android:gravity="left"
-                            />
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -299,7 +318,9 @@
                             android:layout_weight="1"
                             android:textSize="14dp"
                             android:gravity="left"
-                            android:text="3"/>
+                            android:id="@+id/prospectingTally"
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -307,8 +328,10 @@
                             android:layout_weight="1"
                             android:layout_column="14"
                             android:textSize="14dp"
+                            android:id="@+id/prospectingTotal"
                             android:gravity="center"
-                            android:text="15"/>
+                            android:background="@android:color/transparent"
+                            android:inputType="number"/>
 
                     </TableRow>
 
@@ -331,6 +354,7 @@
                             android:textSize="16dp"
                             android:gravity="left"
                             android:textStyle="bold"
+                            android:inputType="number"
                             />
 
                         <TextView
@@ -340,7 +364,8 @@
                             android:textSize="14dp"
                             android:gravity="left"
                             android:textStyle="bold"
-                            android:text="15"/>
+                            android:id="@+id/totalPointsTally"
+                            android:background="@android:color/transparent"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -348,9 +373,10 @@
                             android:layout_weight="1"
                             android:layout_column="14"
                             android:textSize="14dp"
+                            android:id="@+id/grandTotalPoints"
                             android:gravity="center"
                             android:textStyle="bold"
-                            android:text="48"/>
+                            android:background="@android:color/transparent"/>
 
                     </TableRow>
 
@@ -365,6 +391,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/salesActivityNotes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/loremipsum"
@@ -380,8 +407,5 @@
         </RelativeLayout>
 
     </ScrollView>
-
-
-
 
 </RelativeLayout>

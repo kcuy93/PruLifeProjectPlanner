@@ -10,43 +10,41 @@
     tools:context="com.mobee.prulifeagentplanner.LoginActivity">
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="textEmailAddress"
         android:text="@string/agentCode"
         android:ems="15"
         android:id="@+id/usernameField"
-        android:layout_marginTop="201dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"/>
+        android:gravity="center_horizontal"
+        android:layout_above="@+id/passwordField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="15"
+        android:text="@string/password"
         android:id="@+id/passwordField"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/usernameField"
-        android:layout_alignStart="@+id/usernameField"
-        android:text="password" />
+        android:gravity="center_horizontal"
+        android:layout_above="@+id/loginButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:id="@+id/loginButton"
         android:ems="15"
         android:gravity="center"
-        android:textSize="18dp"
-        android:layout_below="@+id/passwordField"
-        android:layout_alignLeft="@+id/passwordField"
-        android:layout_alignStart="@+id/passwordField"
+        android:textSize="18sp"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorWhite"
-        android:layout_marginTop="10dp"/>
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,7 +53,7 @@
         android:id="@+id/requestAccess"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:clickable="true"/>
 
     <TextView
