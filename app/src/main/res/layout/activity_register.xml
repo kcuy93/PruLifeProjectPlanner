@@ -8,18 +8,17 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.mobee.prulifeagentplanner.RegisterActivity">
+    tools:context=".RegisterActivityPresenter">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_above="@id/submitButton"
         android:id="@+id/scrollView"
         android:layout_weight="1">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -27,7 +26,7 @@
                 android:id="@+id/RequestAccess"
                 android:text="@string/requestAccess"
                 android:layout_gravity="center_horizontal"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
@@ -67,16 +66,17 @@
                 android:layout_alignLeft="@+id/agentRadioButton"
                 android:layout_alignStart="@+id/agentRadioButton"
                 android:layout_marginTop="30dp"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:id="@+id/firstNameField"
                 android:layout_below="@+id/firstName"
                 android:layout_alignLeft="@+id/firstName"
                 android:layout_alignStart="@+id/firstName"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -86,16 +86,17 @@
                 android:layout_below="@+id/firstNameField"
                 android:layout_alignLeft="@+id/firstNameField"
                 android:layout_alignStart="@+id/firstNameField"
-                android:textSize="14dp"/>
+                android:textSize="14sp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/middleNameField"
+                android:inputType="text"
                 android:layout_below="@+id/middleName"
                 android:layout_alignLeft="@+id/middleName"
                 android:layout_alignStart="@+id/middleName"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -105,16 +106,17 @@
                 android:layout_below="@+id/middleNameField"
                 android:layout_alignLeft="@+id/middleNameField"
                 android:layout_alignStart="@+id/middleNameField"
-                android:textSize="14dp"/>
+                android:textSize="14sp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/lastNameField"
+                android:inputType="text"
                 android:layout_below="@+id/lastName"
                 android:layout_alignLeft="@+id/lastName"
                 android:layout_alignStart="@+id/lastName"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -124,16 +126,17 @@
                 android:layout_below="@+id/lastNameField"
                 android:layout_alignLeft="@+id/lastNameField"
                 android:layout_alignStart="@+id/lastNameField"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/emailField"
+                android:inputType="textEmailAddress"
                 android:layout_below="@+id/email"
                 android:layout_alignLeft="@+id/email"
                 android:layout_alignStart="@+id/email"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -143,7 +146,7 @@
                 android:layout_below="@+id/emailField"
                 android:layout_alignLeft="@+id/emailField"
                 android:layout_alignStart="@+id/emailField"
-                android:textSize="14dp"/>
+                android:textSize="14sp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -152,7 +155,8 @@
                 android:layout_below="@+id/agentCode"
                 android:layout_alignLeft="@+id/agentCode"
                 android:layout_alignStart="@+id/agentCode"
-                android:textSize="16dp" />
+                android:textSize="16sp"
+                android:inputType="number"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -162,12 +166,12 @@
                 android:layout_below="@+id/agentCodeField"
                 android:layout_alignLeft="@+id/agentCodeField"
                 android:layout_alignStart="@+id/agentCodeField"
-                android:textSize="14dp"/>
+                android:textSize="14sp"/>
 
-            <Spinner
+            <SearchView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/bmSpinner"
+                android:id="@+id/bmSearch"
                 android:layout_below="@+id/branchManager"
                 android:layout_alignLeft="@+id/branchManager"
                 android:layout_alignStart="@+id/branchManager"
@@ -178,15 +182,15 @@
                 android:layout_height="wrap_content"
                 android:text="@string/um"
                 android:id="@+id/unitManager"
-                android:layout_below="@+id/bmSpinner"
-                android:layout_alignLeft="@+id/bmSpinner"
-                android:layout_alignStart="@+id/bmSpinner"
-                android:textSize="14dp"/>
+                android:layout_below="@+id/bmSearch"
+                android:layout_alignLeft="@+id/bmSearch"
+                android:layout_alignStart="@+id/bmSearch"
+                android:textSize="14sp"/>
 
-            <Spinner
+            <SearchView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/umSpinner"
+                android:id="@+id/umSearch"
                 android:layout_below="@+id/unitManager"
                 android:layout_alignLeft="@+id/unitManager"
                 android:layout_alignStart="@+id/unitManager"
@@ -198,14 +202,10 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:textColor="@color/colorWhite"
         android:background="@color/colorPrimary"
         android:text="@string/submit"
-        android:gravity="center"
-        />
+        android:gravity="center"/>
 
 
 </LinearLayout>

@@ -3,12 +3,14 @@ package com.mobee.prulifeagentplanner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivityPresenter extends AppCompatActivity {
 
@@ -19,6 +21,7 @@ public class LoginActivityPresenter extends AppCompatActivity {
     TextView register;
 
     private String emailAddress, passWord;
+    LoginModel loginModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +33,9 @@ public class LoginActivityPresenter extends AppCompatActivity {
         login = (Button) findViewById(R.id.loginButton);
         register = (TextView) findViewById(R.id.requestAccess);
 
-        //password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        final LoginModel loginModel = new LoginModel();
 
-
-       email.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                email.setText("");
-            }
-        });
-
-
-        password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                password.setText("");
-            }
-        });
+        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
         email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -62,29 +51,32 @@ public class LoginActivityPresenter extends AppCompatActivity {
             }
         });
 
-
-        emailAddress = email.getText().toString();
-        passWord = password.getText().toString();
-
-
         /**
          * Upon clicking login button, email & password will be validated
          * when both email and password fields are validated
-         * it will call login function in LoginActivityModel and pass email & password
+         * it will call login function in LoginModel and pass email & password
          * if login function returns true, login is successful
          * **/
         login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if(validateEmail() && validatePassword()){
-                   LoginActivityModel loginActivityModel = new LoginActivityModel();
-                    if (loginActivityModel.login(emailAddress, passWord)){
-                        Log.d(TAG, "login.setOnClickListerner successful");
-                        Intent intent = new Intent(LoginActivityPresenter.this, RegisterActivity.class);
-                        startActivity(intent);
-                    }else{
-                        Log.d(TAG, "login.setOnClickListerner failed");
-                    }
+                    emailAddress = email.getText().toString();
+                    passWord = password.getText().toString();
+                    loginModel.login(emailAddress, passWord, new LoginModel.LoginListener() {
+                        @Override
+                        public void onLoginSuccess() {
+                            Toast.makeText(LoginActivityPresenter.this, "login.setOnClickListener successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivityPresenter.this, RegisterActivityPresenter.class);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onLoginFail() {
+                            Log.d(TAG, "login.setOnClickListener failed");
+                            Toast.makeText(LoginActivityPresenter.this, "Login failed.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });
@@ -92,7 +84,7 @@ public class LoginActivityPresenter extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivityPresenter.this, RegisterActivity.class);
+                Intent intent = new Intent(LoginActivityPresenter.this, RegisterActivityPresenter.class);
                 startActivity(intent);
             }
         });
