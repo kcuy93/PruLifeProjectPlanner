@@ -24,6 +24,7 @@ public class PendingFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     private ListView pendingRequestList;
+    AccountActivationModel accountActivationModel;
 
     public PendingFragment() {
         // Required empty public constructor
@@ -40,18 +41,20 @@ public class PendingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pending,
                 container, false);
 
-        final AccountActivationModel accountActivationModel = new AccountActivationModel();
+        final AccountActivationModel accountActivationModel = new AccountActivationModel("kevin");
 
         pendingRequestList = (ListView) view.findViewById(R.id.pending_request_list);
 
         final ProgressDialog dialog = ProgressDialog.show(getActivity(), null, "Retrieving list..");
 
-        accountActivationModel.getPendingRequests("kevin", new AccountActivationModel.GetPendingRequestListener() {
+        accountActivationModel.getPendingRequests(new AccountActivationModel.GetPendingRequestListener() {
             @Override
             public void onDataChange(List<String> pendingList) {
-                PendingListAdapter pendingListAdapter = new PendingListAdapter(getActivity(), pendingList);
-                pendingRequestList.setAdapter(pendingListAdapter);
 
+                PendingListAdapter pendingListAdapter = new PendingListAdapter(getActivity(), pendingList);
+                pendingListAdapter.setModel(accountActivationModel);
+
+                pendingRequestList.setAdapter(pendingListAdapter);
                 dialog.dismiss();
             }
 

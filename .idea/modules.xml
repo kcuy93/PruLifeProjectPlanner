@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PruLifeAgentPlanner.iml" filepath="$PROJECT_DIR$/PruLifeAgentPlanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PruLifeProjectPlanner.iml" filepath="$PROJECT_DIR$/PruLifeProjectPlanner.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -1,41 +1,42 @@
 package com.mobee.prulifeagentplanner;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mobee.prulifeagentplanner.model.AccountActivationModel;
+import com.mobee.prulifeagentplanner.model.UserModel;
+
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * Created by Kevin on 8/7/2016.
  */
 public class PendingListAdapter extends BaseAdapter {
 
-    List<String> pendingList;
+    List<String> pendingAgentIDList;
     Activity activity;
+    AccountActivationModel model;
 
     public PendingListAdapter(Activity activity, List<String> pendingList){
-        this.pendingList = pendingList;
+        this.pendingAgentIDList = pendingList;
         this.activity = activity;
     }
 
 
     @Override
     public int getCount() {
-        return pendingList.size();
+        return pendingAgentIDList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return pendingList.get(position);
+        return pendingAgentIDList.get(position);
     }
 
     @Override
@@ -66,13 +67,18 @@ public class PendingListAdapter extends BaseAdapter {
         else
             holder=(ViewHolder)vi.getTag();
 
+        //get user name
+        UserModel userModel = new UserModel();
+        Agent agent = userModel.getAgent(pendingAgentIDList.get(position));
+        String fullname = agent.getFirstName() + " " + agent.getLastName();
+        fullname = agent.getId();
 
-        holder.agentName.setText(pendingList.get(position));
+        holder.agentName.setText(fullname);
         holder.acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pendingList.remove(position);
-                Toast.makeText(activity, "Accept Agent!", Toast.LENGTH_SHORT).show();
+                pendingAgentIDList.remove(position);
+                getModel().acceptRequest(pendingAgentIDList.get(position));
                 notifyDataSetChanged();
             }
         });
@@ -80,8 +86,9 @@ public class PendingListAdapter extends BaseAdapter {
         holder.rejectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pendingList.remove(position);
+                pendingAgentIDList.remove(position);
                 Toast.makeText(activity, "Reject Agent!", Toast.LENGTH_SHORT).show();
+                getModel().rejectRequest(pendingAgentIDList.get(position));
                 notifyDataSetChanged();
             }
         });
@@ -97,5 +104,14 @@ public class PendingListAdapter extends BaseAdapter {
         public Button acceptButton;
         public Button rejectButton;
 
+    }
+
+
+    public AccountActivationModel getModel() {
+        return model;
+    }
+
+    public void setModel(AccountActivationModel model) {
+        this.model = model;
     }
 }

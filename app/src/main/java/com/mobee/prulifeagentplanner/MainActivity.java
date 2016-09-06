@@ -1,3 +1,4 @@
+/*
 package com.mobee.prulifeagentplanner;
 
 import android.net.Uri;
@@ -114,3 +115,4 @@ public class MainActivity extends AppCompatActivity
 
     }
 }
+*/
